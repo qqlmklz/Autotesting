@@ -12,7 +12,7 @@ describe("Тест расписания", () => {
   });
 
   after(async function () {
-    this.timeout(10000);
+    this.timeout(100000);
     await gp.closeBrowser();
   });
 
