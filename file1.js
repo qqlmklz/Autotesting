@@ -1,5 +1,6 @@
-const { Builder, By } = require('selenium-webdriver');
-const assert = require('assert');
+import { Builder, By } from 'selenium-webdriver';
+import assert from 'assert';
+import fs from 'fs';
 
 async function waitForElement(driver, locator) {
   await driver.wait(async () => {
@@ -78,7 +79,7 @@ async function lambdaTest() {
 
   } catch (error) {
     await driver.takeScreenshot().then(function(image) {
-      require('fs').writeFileSync('screenshot_error.png', image, 'base64');
+      fs.writeFileSync('screenshot_error.png', image, 'base64');
     });
     console.error(error);
   } finally {
